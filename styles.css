@@ -14,12 +14,12 @@ html, body
     border-left: 2px solid #E7E9EB;
     border-right: 2px solid #E7E9EB;
     margin: auto;
-    width: 50%;
     background-color: white;
     height:100%;
     padding-bottom: 2%;
     padding-top: 1px;
     border-bottom: 2px solid #E7E9EB;
+    max-width: 1280px;
 }
 
 .page_header{
