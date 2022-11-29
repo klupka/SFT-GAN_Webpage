@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/f49e6ed101.js" crossorigin="anonymous"></script>
+    <title>SFT-GAN</title>
+
+    <script>
+        function toggleTheme() {
+            // Obtains an array of all <link>
+            // elements.
+            // Select your element using indexing.
+            var theme = document.getElementsByTagName('link')[0];
+  
+            // Change the value of href attribute 
+            // to change the css sheet.
+            if (theme.getAttribute('href') == 'styles.css') {
+                theme.setAttribute('href', 'dark.css');
+            } else {
+                theme.setAttribute('href', 'styles.css');
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <!-- GO TO TOP -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">🡩</button>
+    <script>
+        // GO TO TOP SCRIPT
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+    <div class="page_content">
+        <div class="page_header">
+                <table class="header_table">
+                    <tr class="header_table_row">
+                        <td class="table_cell_1">
+                            <h1>SPECIAL FEATURE TRANSFORM - GAN</h1>
+                        </td>
+                        <td class="table_cell_2">
+                            <p>PAGE AUTHOR: Seth Klupka</p>
+                            <p>LAST UPDATED: 11/28/2022</p>
+                            THEME: <button class='theme_switcher' onclick='toggleTheme()'>✦</button>
+                        </td>
+                    </tr>
+                </table>
+        </div>
+
+        <div class="page_content_text">
+
+            <table class="link_table"> <!--border-bottom: 2px solid #E7E9EB;border-top: 2px solid #E7E9EB;-->
+                <tr class="link_table_r">
+                    <td class="link_table_c1_icon">
+                        <p><i class="fa-solid fa-file fa-1x"></i></p>
+                    </td>
+                    <td class="link_table_c2_icon_label">
+                        <p class="background_info"> <b>PAPER:</b></p>
+                    </td>
+                    <td class="link_table_c3_icon_label">
+                        <p class="background_info_right"><a href="https://arxiv.org/pdf/1804.02815.pdf" target="_blank">Recovering Realistic Texture in Image Super-resolution by Deep Spatial Feature Transform (PDF)</a></p>
+                    </td>
+                </tr>
+
+                <tr class="link_table_r">
+                    <td class="link_table_c1_icon">
+                        <p><i class="fa-solid fa-users"></i></p>
+                    </td>
+                    <td class="link_table_c2_icon_label">
+                        <p class="background_info"> <b>AUTHOR(S):</b></p>
+                    </td>
+                    <td class="link_table_c3_icon_label">
+                        <p class="background_info_right"><a href="https://scholar.google.com.hk/citations?user=FQgZpQoAAAAJ&hl=en&oi=sra" target="_blank">Xintao Wang</a>  <b><span class="auth_sep">|</span></b>  <a href="https://scholar.google.com.hk/citations?user=GatMy5UAAAAJ&hl=en&oi=sra" target="_blank">Ke Yu</a>  <b><span class="auth_sep">|</span></b>  <a href="https://scholar.google.com.hk/citations?user=OSDCB0UAAAAJ&hl=en&oi=sra" target="_blank">Chao Dong</a>  <b><span class="auth_sep">|</span></b>  <a href="https://scholar.google.com.hk/citations?user=559LF80AAAAJ&hl=en&oi=sra" target="_blank">Chen Change Loy</a></p>
+                    </td>
+                </tr>
+                
+                <tr class="link_table_r">
+                    <td class="link_table_c1_icon">
+                        <p><i class="fa-brands fa-github"></i></p>
+                    </td>
+                    <td class="link_table_c2_icon_label">
+                        <p class="background_info"> <b>CODE:</b></p>
+                    </td>
+                    <td class="link_table_c3_icon_label">
+                        <p class="background_info_right"><a href="https://github.com/xinntao/SFTGAN" target="_blank">GitHub</a></p>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- TABLE OF CONTENTS -->
+            <div id="toc_container">
+                <p class="toc_title">CONTENTS</p>
+                <ul class="toc_list">
+                    <li><a href="#abstract">ABSTRACT</a>
+                        <ol class="sub_abstract_list">
+                            <li><a href="#problem">THE PROBLEM</a>
+                            <li><a href="#ph2">[PH]</a>    
+                            <li><a href="#ph3">[PH]</a>    
+                        </ol>
+                    <li><a href="#introduction">INTRODUCTION</a>
+                    <li><a href="#results">RESULTS</a>
+                    <li><a href="#methodology">METHODOLOGY</a>
+                    <li><a href="#PH">[PH]</a>
+                </ul>
+            </div>
+
+            <!-- ABSTRACT -->
+            <h3 class="section_title" id="abstract"> <b>ABSTRACT</b></h3>
+            <p class="abstract">Despite that convolutional neural networks (CNN) have recently demonstrated high-quality reconstruction for single-image super-resolution (SR), recovering natural and realistic texture remains a challenging problem. In this paper, we show that it is possible to recover textures faithful to semantic classes . In particular, we only need to modulate features of a few intermediate layers in a single network conditioned on semantic segmentation probability maps. This is made possible through a novel Spatial Feature Transform (SFT) layer that generates affine transformation parameters for spatial-wise feature modulation. SFT layers can be trained end-to-end together with the SR network using the same loss function. During testing, it accepts an input image of arbitrary size and generates a high-resolution image with just a single forward pass conditioned on the categorical priors. Our final results show that an SR network equipped with SFT can generate more realistic and visually pleasing textures in comparison to state-of-the-art SRGAN and EnhanceNet.</p>
+            
+            <!-- INTRODUCTION -->
+            <h3 class="section_title" id="introduction"> <b>INTRODUCTION</b></h3>
+            
+            <h4 class="section_subtitle" id="problem"> <b>1. THE PROBLEM</b></h4>
+            <p class="section_content">Single-image super-resolution (SISR) is a computer vision task that reconstructs a high-resolution (HR) image from a low-resolution (LR) image. Though there has been great advancements in SISR, a glaring issue still remains when attempting to retain texture detail. Patches selected from two different LR images could look similar, but the original HR image reveals that they are vastly different. For example, the figure below shows two LR images. One is a patch from the side of a brick building, and the other is a patch from a flower bush. Given only the patch with no other context, the two present similar texture and color.</p>
+            <img style="width:70%;padding-bottom: 3%;" src="https://machine-learning-note.readthedocs.io/en/latest/_images/SFTGAN.png" alt="Introductino Image">
+            <h4 class="section_subtitle" id="ph2"> <b>2. [PH]</b></h4>
+            <p class="section_content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum veritatis obcaecati quis expedita possimus laudantium earum assumenda quia placeat vitae exercitationem facilis illum veniam laboriosam vel laborum aliquam, ea ratione.</p>
+
+            <!-- QUALITATIVE RESULTS COMPARISON -->
+            <h3 class="section_title" id="results"> <b>QUALITATIVE RESULTS COMPARISON</b></h3>
+            <p class="section_content">Displayed below are three different images that have been purposefully lowered in resolution and then processed through various single-image super-resolution (SR) methods. The images below the label "GT" are the original high resolution (HR) images. EnhanceNet, SRGAN, and SFT-GAN clearly outperform the rest in perceptual quality. EnhanceNet and SRGAN are state-of-the-art methods, but still lack texture retention. SFT-GAN generally generates richer and more realistic texture for all of the three test images.</p>
+            <img class="content_img" src="https://raw.githubusercontent.com/xinntao/SFTGAN/master/figures/qualitative_cmp.jpg" alt="SFT-GAN Example Output">
+            
+            <!-- METHODOLOGY -->
+            <h3 class="section_title" id="methodology"> <b>METHODOLOGY</b></h3>
+            <p class="section_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae minima sapiente rerum id asperiores nam quia architecto ratione dignissimos exercitationem corporis accusantium eum ipsa, dolorum pariatur labore voluptates repellat autem!</p>
+            <img class="content_img" src="https://github.com/xinntao/SFTGAN/blob/master/figures/network_structure.png?raw=true" alt="SFT Layers Model">
+        </div>
+
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
